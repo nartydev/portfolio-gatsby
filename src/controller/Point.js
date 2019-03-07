@@ -1,14 +1,14 @@
+import { TweenLite } from "gsap";
+
 export default class Point {
-    constructor(_x, _y, _context, _sizes, _cursor, big) {
+    constructor(_x, _y, _ix, _iy, _context, _sizes, _cursor, big) {
         this.x = _x;
-        this.ix = _x;
-        this.otherx = _x + ((Math.random() - 0.5) * Math.PI*2);
+        this.ix = _ix;
         this.vx = 0;
         this.vy = 0;
         this.cx = 0;
         this.y = _y;
-        this.iy = _y;
-        this.othery = _y + ((Math.random() - 0.5) * Math.PI*2);
+        this.iy = _iy;
         this.cy = 0;
         this.sizes = _sizes
         this.cursor = _cursor
@@ -25,7 +25,11 @@ export default class Point {
         }
         this.angle = (Math.random() - 0.5) * Math.PI*2
         this.randomPosition()
+
     }
+
+
+
     
     
     randomPosition() {
@@ -55,9 +59,7 @@ export default class Point {
             if (Math.sqrt(dx * dx) < this.mouseDist && Math.sqrt(dy * dy) < this.mouseDist) {
                 this.vx = this.cursor.speedMouseX / 8
             } 
-        } /* else {
-            this.vy += ((Math.random() - 0.5) * Math.PI*2 / 50)
-        } */
+        } 
         
         this.vx *= (1 - this.damping);
         
@@ -76,9 +78,7 @@ export default class Point {
             if (Math.sqrt(dx * dx) < this.mouseDist && Math.sqrt(dy * dy) < this.mouseDist) {
                 this.vy = this.cursor.speedMouseY / 8
             }
-        } /* else {
-            this.vy += ((Math.random() - 0.5) * Math.PI*2 / 50)
-        } */
+        } 
         
         this.vy *= (1 - this.damping);
         this.y += this.vy

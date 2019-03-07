@@ -132,39 +132,48 @@ componentDidMount() {
     this.allPoint = [
       {
         contentPoint: [
-          -507 + this.state.width / 2,
-          -210 + this.state.height / 2,
-          -340 + this.state.width / 2,
-          -284 + this.state.height / 2,
-          -111 + this.state.width / 2,
-          -232 + this.state.height / 2,
-          119 + this.state.width / 2,
-          -284 + this.state.height / 2,
-          332 + this.state.width / 2,
-          -232 + this.state.height / 2,
-          562 + this.state.width / 2,
-          -284 + this.state.height / 2,
-          497 + this.state.width / 2,
-          17 + this.state.height / 2,
-          562 + this.state.width / 2,
-          273 + this.state.height / 2,
-          332 + this.state.width / 2,
-          216 + this.state.height / 2,
-          119 + this.state.width / 2,
-          259 + this.state.height / 2,
-          -111 + this.state.width / 2,
-          216 + this.state.height / 2,
-          -340 + this.state.width / 2,
-          284 + this.state.height / 2,
-          -563 + this.state.width / 2,
-          216 + this.state.height / 2,
-          -507 + this.state.width / 2,
-          17 + this.state.height / 2,
+          this.state.width / 2,
+          this.state.height / 2,
+          this.state.width / 2,
+          this.state.height / 2,
+          this.state.width / 2,
+          this.state.height / 2,
+          this.state.width / 2,
+          this.state.height / 2,
+          this.state.width / 2,
+          this.state.height / 2,
+          this.state.width / 2,
+          this.state.height / 2,
+          this.state.width / 2,
+          this.state.height / 2,
+          this.state.width / 2,
+          this.state.height / 2,
+          this.state.width / 2,
+          this.state.height / 2,
+          this.state.width / 2,
+          this.state.height / 2,
+          this.state.width / 2,
+          this.state.height / 2,
+          this.state.width / 2,
+          this.state.height / 2,
+          this.state.width / 2,
+          this.state.height / 2,
+          this.state.width / 2,
+        this.state.height / 2,
         ],
       },
     ]
     window.addEventListener("resize", () => this.resize()) 
-    this.resize()
+    window.addEventListener('mousewheel', _event => {
+      if(_event.deltaY > 30) {
+       this.bigRounds[0].makeThis()
+      }
+      if(_event.deltaY < - 30) {
+      console.log(_event.deltaY)
+       this.bigRounds[0].makeInverse()
+      }
+    }) 
+    
     /* Set mouse */
     window.addEventListener('mousemove', (_event) => {
         this.cursor.x = _event.clientX
@@ -192,6 +201,7 @@ componentDidMount() {
 
     /* Set loop */
     this.loop()
+    this.resize()
 
     /* Add shapes */
     /*this.roundPoint.map((_round, _key) => {

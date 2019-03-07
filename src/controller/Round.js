@@ -15,13 +15,14 @@ export default class Round {
             if(i % 2 === 0) {
                 let big;
                 this.points.length >= 20 ? big = true : big = false
-                this.pointsInitial.push(new Point(this.points[i], this.points[i+1], this.context, this.sizes, this.cursor, big))
+                this.pointsInitial.push(new Point(this.points[i], this.points[i+1], this.allPoint.contentPoint[i], this.allPoint.contentPoint[i+1], this.context, this.sizes, this.cursor, big))
             }
         }
         
         this.speed = {}
         this.color = `#FFF7C7`;
         this.v = 0
+        console.log(this.pointsInitial);
     }
 
     draw() {

@@ -11,12 +11,42 @@ export default class RandomRound {
         this.context = _context
         this.points = _points
         this.pointsInitial = []
-        
+        this.allPoint = [
+                -507 + this.sizes.width / 2,
+                -210 + this.sizes.height / 2,
+                -340 + this.sizes.width / 2,
+                -284 + this.sizes.height / 2,
+                -111 + this.sizes.width / 2,
+                -232 + this.sizes.height / 2,
+                119 + this.sizes.width / 2,
+                -284 + this.sizes.height / 2,
+                332 + this.sizes.width / 2,
+                -232 + this.sizes.height / 2,
+                562 + this.sizes.width / 2,
+                -284 + this.sizes.height / 2,
+                497 + this.sizes.width / 2,
+                17 + this.sizes.height / 2,
+                562 + this.sizes.width / 2,
+                273 + this.sizes.height / 2,
+                332 + this.sizes.width / 2,
+                216 + this.sizes.height / 2,
+                119 + this.sizes.width / 2,
+                259 + this.sizes.height / 2,
+                -111 + this.sizes.width / 2,
+                216 + this.sizes.height / 2,
+                -340 + this.sizes.width / 2,
+                284 + this.sizes.height / 2,
+                -563 + this.sizes.width / 2,
+                216 + this.sizes.height / 2,
+                -507 + this.sizes.width / 2,
+                17 + this.sizes.height / 2,
+          ]
         for(let i = 0; i < this.points.length;i++) {
             if(i % 2 === 0) {
                 let big;
                 this.points.length >= 20 ? big = true : big = false
-                this.pointsInitial.push(new Point(this.points[i], this.points[i+1], this.context, this.sizes, this.cursor, big))
+                this.pointsInitial.push(new Point(this.points[i], this.points[i+1], this.allPoint[i], this.allPoint[i+1], this.context, this.sizes, this.cursor, big))
+                console.log(this.pointsInitial)
             }
         }
         
@@ -25,6 +55,19 @@ export default class RandomRound {
         this.v = 0
         this.img = new Image()
         this.img.src = url;
+
+    }
+
+    animateStart(){
+        for(let _point of this.pointsInitial) {
+            console.log(_point)
+            TweenLite.to(_point, 2, {
+                x: _point.xi,
+                y: _point.yi,
+                ease: Ease.easeInOut
+            })
+           
+        }
     }
 
     draw() {
