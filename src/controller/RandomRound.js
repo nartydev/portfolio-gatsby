@@ -1,6 +1,6 @@
 import Point from './Point'
 import { TweenLite, Ease } from 'gsap'
-import * as curve from 'cardinal-spline-js/src/curve'
+import { curve } from 'cardinal-spline-js/src/curve_func'
 import url from '../assets/user.jpg'
 
 export default class RandomRound {
@@ -41,7 +41,7 @@ export default class RandomRound {
         this.context.globalCompositeOperation = 'destination-atop'
         this.context.fillStyle = this.color;
         this.context.beginPath();
-        this.context.curve(this.points, 0.1, 10, true)
+        curve(this.context, this.points, 0.1, 10, true)
         this.context.closePath()
         this.context.fill();
         this.context.globalCompositeOperation = 'source-over'

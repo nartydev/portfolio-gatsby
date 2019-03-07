@@ -1,6 +1,6 @@
 import Point from './Point'
 
-import * as curve from 'cardinal-spline-js/src/curve'
+import { curve } from 'cardinal-spline-js/src/curve_func'
 
 export default class Round {
     constructor(_key, _cursor, _context, _sizes, _points) {
@@ -36,8 +36,7 @@ export default class Round {
 
         this.context.globalCompositeOperation = 'source-over'
         this.context.fillStyle = this.color;
-        this.context.beginPath();
-        this.context.curve(this.points, 0.5, 80, true)
+        curve(this.context, this.points, 0.5, 80, true)
         this.context.closePath()
         this.context.fill();
     }
