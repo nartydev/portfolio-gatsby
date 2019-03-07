@@ -7,8 +7,6 @@ class Canvas extends Component {
   constructor(props) {
     super(props)
     this.sizes = { width: 800, height: 800 }
-    this.sizes.width = window.innerWidth
-    this.sizes.height = window.innerHeight
     this.ctx = undefined
 
     this.cursor = {
@@ -156,7 +154,8 @@ class Canvas extends Component {
 }
 
 componentDidMount() {
-
+    this.sizes.width = window.innerWidth
+    this.sizes.height = window.innerHeight
     /* Set canvas */
     this.updateCanvas()
 
