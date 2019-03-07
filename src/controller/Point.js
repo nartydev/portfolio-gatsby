@@ -34,7 +34,6 @@ export default class Point {
         setInterval(() => {
             this.angle = -this.angle
             interval = Math.floor(Math.random() * 3)
-            console.log(time[interval])
         }, time[interval]);
 
         const loop = () => {

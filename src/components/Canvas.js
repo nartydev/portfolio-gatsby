@@ -129,7 +129,6 @@ componentDidMount() {
     this.updateCanvas()
 
     /* Resize canvas */
-    this.resize()
     this.allPoint = [
       {
         contentPoint: [
@@ -165,7 +164,7 @@ componentDidMount() {
       },
     ]
     window.addEventListener("resize", () => this.resize()) 
-    
+    this.resize()
     /* Set mouse */
     window.addEventListener('mousemove', (_event) => {
         this.cursor.x = _event.clientX
@@ -231,8 +230,7 @@ componentDidMount() {
     this.setState({ height: window.innerHeight, width: window.innerWidth})
     this.ctx.width = this.state.width
     this.ctx.height = this.state.height
-    console.log(this.ctx.width)
-    console.log(this.ctx.height)
+    console.log('ok resize')
   }
 
   loop() {
