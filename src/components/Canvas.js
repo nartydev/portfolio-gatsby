@@ -6,7 +6,7 @@ import RandomRound from '../controller/RandomRound'
 class Canvas extends Component {
   constructor(props) {
     super(props)
-    this.sizes = { width: 800, height: 800 }
+    this.state = { width: 800, height: 800 }
     this.ctx = undefined
 
     this.cursor = {
@@ -30,96 +30,95 @@ class Canvas extends Component {
   
   componentWillMount() {
     if (typeof window !== 'undefined') { 
-      this.sizes.width = window.innerWidth
-      this.sizes.height = window.innerHeight
+      this.setState({ width: window.innerWidth, height: window.innerHeight})
     }
         this.roundPoint = [
           {
             contentPoint: [
               -65.37 - 50,
-              -301.58 + this.sizes.height + 50,
+              -301.58 + this.state.height + 50,
               72.99 - 50,
-              -299.94 + this.sizes.height + 50,
+              -299.94 + this.state.height + 50,
               228.32 - 50,
-              -207.78 + this.sizes.height + 50,
+              -207.78 + this.state.height + 50,
               296.09 - 50,
-              -87.13 + this.sizes.height + 50,
+              -87.13 + this.state.height + 50,
               293.94 - 50,
-              93.46 + this.sizes.height + 50,
+              93.46 + this.state.height + 50,
               223.34 - 50,
-              212.46 + this.sizes.height + 50,
+              212.46 + this.state.height + 50,
               65.86 - 50,
-              300.9 + this.sizes.height + 50,
+              300.9 + this.state.height + 50,
               -72.51 - 50,
-              299.26 + this.sizes.height + 50,
+              299.26 + this.state.height + 50,
               -227.83 - 50,
-              207.1 + this.sizes.height + 50,
+              207.1 + this.state.height + 50,
               -295.6 - 50,
-              86.45 + this.sizes.height + 50,
+              86.45 + this.state.height + 50,
               -293.45 - 50,
-              -94.14 + this.sizes.height + 50,
+              -94.14 + this.state.height + 50,
               -222.85 - 50,
-              -213.15 + this.sizes.height + 50,
+              -213.15 + this.state.height + 50,
             ],
           },
           {
             contentPoint: [
-              -65.37 + this.sizes.width + 50,
+              -65.37 + this.state.width + 50,
               -301.58 - 50,
-              72.99 + this.sizes.width + 50,
+              72.99 + this.state.width + 50,
               -299.94 - 50,
-              228.32 + this.sizes.width + 50,
+              228.32 + this.state.width + 50,
               -207.78 - 50,
-              296.09 + this.sizes.width + 50,
+              296.09 + this.state.width + 50,
               -87.13 - 50,
-              293.94 + this.sizes.width + 50,
+              293.94 + this.state.width + 50,
               93.46 - 50,
-              223.34 + this.sizes.width + 50,
+              223.34 + this.state.width + 50,
               212.46 - 50,
-              65.86 + this.sizes.width + 50,
+              65.86 + this.state.width + 50,
               300.9 - 50,
-              -72.51 + this.sizes.width + 50,
+              -72.51 + this.state.width + 50,
               299.26 - 50,
-              -227.83 + this.sizes.width + 50,
+              -227.83 + this.state.width + 50,
               207.1 - 50,
-              -295.6 + this.sizes.width + 50,
+              -295.6 + this.state.width + 50,
               86.45 - 50,
-              -293.45 + this.sizes.width + 50,
+              -293.45 + this.state.width + 50,
               -94.14 - 50,
-              -222.85 + this.sizes.width + 50,
+              -222.85 + this.state.width + 50,
               -213.15 - 50,
             ],
           },
           {
             contentPoint: [
-              -10.86 + this.sizes.width - 500,
+              -10.86 + this.state.width - 500,
               -18.42 + 100,
-              9.88 + this.sizes.width - 500,
+              9.88 + this.state.width - 500,
               -18.42 + 100,
-              20.26 + this.sizes.width - 500,
+              20.26 + this.state.width - 500,
               -0.46 + 100,
-              9.88 + this.sizes.width - 500,
+              9.88 + this.state.width - 500,
               17.5 + 100,
-              -10.86 + this.sizes.width - 500,
+              -10.86 + this.state.width - 500,
               17.5 + 100,
-              -21.23 + this.sizes.width - 500,
+              -21.23 + this.state.width - 500,
               -0.46 + 100,
             ],
           },
           {
             contentPoint: [
               -15 + 300,
-              -30 + this.sizes.height - 150,
+              -30 + this.state.height - 150,
               15 + 300,
-              -30 + this.sizes.height - 150,
+              -30 + this.state.height - 150,
               34 + 300,
-              0 + this.sizes.height - 150,
+              0 + this.state.height - 150,
               15 + 300,
-              30 + this.sizes.height - 150,
+              30 + this.state.height - 150,
               -15 + 300,
-              30 + this.sizes.height - 150,
+              30 + this.state.height - 150,
               -34 + 300,
-              0 + this.sizes.height - 150,
+              0 + this.state.height - 150,
             ],
           },
         ]
@@ -134,34 +133,34 @@ componentDidMount() {
     this.allPoint = [
       {
         contentPoint: [
-          -507 + this.sizes.width / 2,
-          -210 + this.sizes.height / 2,
-          -340 + this.sizes.width / 2,
-          -284 + this.sizes.height / 2,
-          -111 + this.sizes.width / 2,
-          -232 + this.sizes.height / 2,
-          119 + this.sizes.width / 2,
-          -284 + this.sizes.height / 2,
-          332 + this.sizes.width / 2,
-          -232 + this.sizes.height / 2,
-          562 + this.sizes.width / 2,
-          -284 + this.sizes.height / 2,
-          497 + this.sizes.width / 2,
-          17 + this.sizes.height / 2,
-          562 + this.sizes.width / 2,
-          273 + this.sizes.height / 2,
-          332 + this.sizes.width / 2,
-          216 + this.sizes.height / 2,
-          119 + this.sizes.width / 2,
-          259 + this.sizes.height / 2,
-          -111 + this.sizes.width / 2,
-          216 + this.sizes.height / 2,
-          -340 + this.sizes.width / 2,
-          284 + this.sizes.height / 2,
-          -563 + this.sizes.width / 2,
-          216 + this.sizes.height / 2,
-          -507 + this.sizes.width / 2,
-          17 + this.sizes.height / 2,
+          -507 + this.state.width / 2,
+          -210 + this.state.height / 2,
+          -340 + this.state.width / 2,
+          -284 + this.state.height / 2,
+          -111 + this.state.width / 2,
+          -232 + this.state.height / 2,
+          119 + this.state.width / 2,
+          -284 + this.state.height / 2,
+          332 + this.state.width / 2,
+          -232 + this.state.height / 2,
+          562 + this.state.width / 2,
+          -284 + this.state.height / 2,
+          497 + this.state.width / 2,
+          17 + this.state.height / 2,
+          562 + this.state.width / 2,
+          273 + this.state.height / 2,
+          332 + this.state.width / 2,
+          216 + this.state.height / 2,
+          119 + this.state.width / 2,
+          259 + this.state.height / 2,
+          -111 + this.state.width / 2,
+          216 + this.state.height / 2,
+          -340 + this.state.width / 2,
+          284 + this.state.height / 2,
+          -563 + this.state.width / 2,
+          216 + this.state.height / 2,
+          -507 + this.state.width / 2,
+          17 + this.state.height / 2,
         ],
       },
     ]
@@ -197,7 +196,7 @@ componentDidMount() {
 
     /* Add shapes */
     /*this.roundPoint.map((_round, _key) => {
-        const round = new Round(_key, this.cursor, this.ctx, this.sizes, _round.contentPoint)
+        const round = new Round(_key, this.cursor, this.ctx, this.state, _round.contentPoint)
         this.rounds.push(round)
     })*/
     this.allPoint.map((_round, _key) => {
@@ -205,7 +204,7 @@ componentDidMount() {
         _key,
         this.cursor,
         this.ctx,
-        this.sizes,
+        this.state,
         _round.contentPoint
       )
       this.bigRounds.push(round)
@@ -229,11 +228,11 @@ componentDidMount() {
   /* Resize */
 
   resize() {
-    this.sizes.width = window.innerWidth
-    this.sizes.height = window.innerHeight
-    this.ctx.width = this.sizes.width
-    this.ctx.height = this.sizes.height
-    console.log(this.ctx)
+    this.setState({ height: window.innerHeight, width: window.innerWidth})
+    this.ctx.width = this.state.width
+    this.ctx.height = this.state.height
+    console.log(this.ctx.width)
+    console.log(this.ctx.height)
   }
 
   loop() {
@@ -242,7 +241,7 @@ componentDidMount() {
     
     // Clear
     this.ctx.fillStyle = '#fff'
-    this.ctx.fillRect(0, 0, this.sizes.width, this.sizes.height)
+    this.ctx.fillRect(0, 0, this.state.width, this.state.height)
     
     
     for(let round of this.rounds) {
@@ -259,8 +258,8 @@ componentDidMount() {
     return (
       <canvas
         ref="canvas"
-        width={this.sizes.width}
-        height={this.sizes.height}
+        width={this.state.width}
+        height={this.state.height}
       />
     
     )
