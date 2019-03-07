@@ -1,3 +1,7 @@
+import Point from './Point'
+
+import * as curve from 'cardinal-spline-js/src/curve'
+
 export default class Round {
     constructor(_key, _cursor, _context, _sizes, _points) {
         this.id = _key

@@ -1,3 +1,7 @@
+import Point from './Point'
+import { TweenLite, Ease } from 'gsap'
+import * as curve from 'cardinal-spline-js/src/curve'
+import url from '../assets/user.jpg'
 
 export default class RandomRound {
     constructor(_key, _cursor, _context, _sizes, _points) {
@@ -20,7 +24,7 @@ export default class RandomRound {
         this.color = `#FFF7C7`;
         this.v = 0
         this.img = new Image()
-        this.img.src = './user.jpg';
+        this.img.src = url;
     }
 
     draw() {
@@ -31,22 +35,23 @@ export default class RandomRound {
             this.points[idY] += _point.coordY()
         })
 
-        this.context.drawImage(this.img, this.sizes.width/2 - 500/2, this.sizes.height/2-550/2, 500, 550);
+        this.context.drawImage(this.img, 0,0, this.sizes.width, this.sizes.height);
         
         
         this.context.globalCompositeOperation = 'destination-atop'
         this.context.fillStyle = this.color;
         this.context.beginPath();
-        this.context.curve(this.points, 0.5, 80, true)
+        this.context.curve(this.points, 0.1, 10, true)
         this.context.closePath()
         this.context.fill();
+        this.context.globalCompositeOperation = 'source-over'
     }
 
     makeThis() {
         for(let _point of this.pointsInitial) {
             TweenLite.to(_point, 2, {
-                x: 0 + sizes.width/2,
-                y: 0 + sizes.height/2,
+                x: 0 + this.sizes.width/2,
+                y: 0 + this.sizes.height/2,
                 ease: Ease.easeInOut
             })
            
@@ -54,8 +59,8 @@ export default class RandomRound {
     }
     makeInverse() {
         for(let _point of this.pointsInitial) {
-            _point.ix -= 0 - sizes.width/30;
-            _point.iy -= 0 - sizes.height/30;
+            _point.ix -= 0 - this.sizes.width/30;
+            _point.iy -= 0 - this.sizes.height/30;
             _point.x = 0;
             _point.y = 0;
             console.log(_point)

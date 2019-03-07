@@ -29,18 +29,18 @@ export default class Point {
     
     
     randomPosition() {
-        let interval = Math.floor(Math.random() * 4)
-        let time = [4000, 6000, 8000, 10000]
+        let interval = Math.floor(Math.random() * 3)
+        let time = [3000, 6000, 9000]
         setInterval(() => {
             this.angle = -this.angle
-            interval = Math.floor(Math.random() * 4)
+            interval = Math.floor(Math.random() * 3)
             console.log(time[interval])
         }, time[interval]);
 
         const loop = () => {
             window.requestAnimationFrame(loop)
-            this.x += (this.angle / 70)
-            this.y += (this.angle / 70)
+            this.x += (this.angle / 20)
+            this.y += (this.angle / 20)
         }
           
         loop()

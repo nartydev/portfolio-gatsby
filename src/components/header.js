@@ -5,17 +5,12 @@ import React from "react"
 import { global } from "../styles/"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      height: 100
-    }}
-  >
+
+  <global.contentName>
     <global.name>
       Kérian.
     </global.name>
-    
-  </header>
+  </global.contentName>
 )
 
 Header.propTypes = {
