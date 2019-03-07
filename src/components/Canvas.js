@@ -126,8 +126,8 @@ class Canvas extends Component {
 
 componentDidMount() {
     /* Set canvas */
+    this.setState({ width: window.innerWidth, height: window.innerHeight})
     this.updateCanvas()
-
     /* Resize canvas */
     this.allPoint = [
       {
