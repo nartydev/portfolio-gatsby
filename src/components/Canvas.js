@@ -29,8 +29,10 @@ class Canvas extends Component {
   }
   
   componentWillMount() {
-    this.sizes.width = window.innerWidth
-    this.sizes.height = window.innerHeight
+    if (typeof window !== 'undefined') { 
+      this.sizes.width = window.innerWidth
+      this.sizes.height = window.innerHeight
+    }
         this.roundPoint = [
           {
             contentPoint: [
