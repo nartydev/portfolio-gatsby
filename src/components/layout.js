@@ -13,12 +13,24 @@ import Header from "./header"
 import { global } from '../styles/index'
 
 const Layout = ({ children }) => (
-
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
       <>
         <global.GlobalStyle/>
-
+        <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
       </>
+    )}
+  />
 )
 
 Layout.propTypes = {

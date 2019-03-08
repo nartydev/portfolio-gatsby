@@ -7,11 +7,11 @@ import SEO from "../components/seo"
 class About extends React.Component {
     render() {
         return (
-            <Layout>
+            <React.Fragment>
                 <SEO title="About" keywords={[`freelance`, `front-end`, `react`, `student`, `hetic`]} />
-                About
+                Abouthjkbvcvghb
                 <Link to="/">Home</Link>
-            </Layout>
+            </React.Fragment>
         );
     }
 }
