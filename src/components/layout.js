@@ -14,7 +14,7 @@ import Header from "./header"
 import { global } from '../styles/index'
 
 const Transition = posed.div({
-  enter: { opacity: 1, delay: 300, beforeChildren: true },
+  enter: { opacity: 1, delay: 2000, beforeChildren: true },
   exit: { opacity: 0 },
 })
 

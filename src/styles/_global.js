@@ -38,6 +38,11 @@ const GlobalStyle = createGlobalStyle`
 
 `
 
+const container = styled.div`
+    position:absolute;
+    left:0;right:0;top:0;bottom:0;
+`
+
 const contentName = styled.div`
     overflow:hidden;
     position: absolute;
@@ -159,4 +164,4 @@ const socialLink = styled.div`
 `
 
 
-export { GlobalStyle, name, contentName, socialMenu, socialLink, about, contentAbout, link }
+export { GlobalStyle, name, contentName, socialMenu, socialLink, about, contentAbout, link, container }
