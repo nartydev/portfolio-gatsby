@@ -14,18 +14,22 @@ export default class Point {
         this.cursor = _cursor
         this.context = _context;
         
-        if(big) {
-            this.viscosity = 30;
-            this.mouseDist = 80;
-            this.damping = 0.10;
-        } else {
-            this.viscosity = 30;
-            this.mouseDist = 20;
-            this.damping = 0.2;
-        }
+        this.viscosity = 200;
+        this.mouseDist = 120;
+        this.damping = 0.05;
+
+        
         this.angle = (Math.random() - 0.5) * Math.PI*2
         this.randomPosition()
+        this.resetAfterStart()
+    }
 
+    resetAfterStart() {
+        setTimeout(() => {
+            this.viscosity = 30;
+            this.mouseDist = 120;
+            this.damping = 0.1;
+        }, 2000);
     }
 
 

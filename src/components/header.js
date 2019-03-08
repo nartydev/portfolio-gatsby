@@ -6,11 +6,19 @@ import { global } from "../styles/"
 
 const Header = ({ siteTitle }) => (
 
-  <global.contentName>
-    <global.name>
-      Kérian.
-    </global.name>
-  </global.contentName>
+  <React.Fragment>
+    <global.contentName>
+      <global.name>
+        Kérian.
+      </global.name>
+    </global.contentName>
+
+    <global.contentAbout>
+      <global.about>
+        <Link to="about">About</Link>
+      </global.about>
+    </global.contentAbout>
+  </React.Fragment>
 )
 
 Header.propTypes = {

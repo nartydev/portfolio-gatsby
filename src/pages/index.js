@@ -5,6 +5,8 @@ import { home } from "../styles/"
 
 import {TimelineLite, TweenLite, Power4} from 'gsap'
 
+import PageTransition from 'gatsby-plugin-page-transitions';
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -31,6 +33,20 @@ class IndexPage extends React.Component {
 
   render() {
     return (
+      <PageTransition
+      defaultStyle={{
+      transition: 'opacity 500ms cubic-bezier(0.47, 0, 0.75, 0.72)',
+      opacity: 0,
+      position: 'absolute',
+      width: '100%',
+      }}
+      transitionStyles={{
+      entering: { opacity: 0 },
+      entered: { opacity: 1 },
+      exiting: { opacity: 0 },
+      }}
+      transitionTime={500}
+  >
       <Layout>
         <SEO title="Home" keywords={[`freelance`, `front-end`, `react`, `student`, `hetic`]} />
         <Canvas/>
@@ -52,6 +68,7 @@ class IndexPage extends React.Component {
           </div>
         </home.containerProject>
       </Layout>
+  </PageTransition>
     )
   }
 }

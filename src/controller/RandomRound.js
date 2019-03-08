@@ -45,7 +45,7 @@ export default class RandomRound {
             if(i % 2 === 0) {
                 let big;
                 this.points.length >= 20 ? big = true : big = false
-                this.pointsInitial.push(new Point(this.points[i], this.points[i+1], this.allPoint[i], this.allPoint[i+1], this.context, this.sizes, this.cursor, big))
+                this.pointsInitial.push(new Point(this.sizes.width/2, this.sizes.height/2, this.allPoint[i], this.allPoint[i+1], this.context, this.sizes, this.cursor, big))
                 console.log(this.pointsInitial)
             }
         }
@@ -84,7 +84,7 @@ export default class RandomRound {
         this.context.globalCompositeOperation = 'destination-atop'
         this.context.fillStyle = this.color;
         this.context.beginPath();
-        curve(this.context, this.points, 0.1, 10, true)
+        curve(this.context, this.points, 0.0, 10, true)
         this.context.closePath()
         this.context.fill();
         this.context.globalCompositeOperation = 'source-over'

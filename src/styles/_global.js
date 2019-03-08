@@ -46,6 +46,15 @@ const contentName = styled.div`
     height: 24px;
 `
 
+const contentAbout = styled.div`
+    overflow:hidden;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 60px;
+    height: 24px;
+`
+
 const showName = keyframes`
     0% {
         transform:translateY(-100%);
@@ -89,6 +98,19 @@ const name = styled.div`
     }
 `
 
+const about = styled.div`
+    position: absolute;
+    top: 0px;
+    left:0px;
+    font-family: 'Circular Medium';
+    z-index: 1;
+    font-size: 18px;
+    position:relative;
+    transform:translateX(-100%);
+    animation: ${showName} .4s .7s ease-in-out forwards;
+
+`
+
 const socialMenu = styled.div`
     position: absolute;
     right: -60px;
@@ -127,4 +149,4 @@ const socialLink = styled.div`
 `
 
 
-export { GlobalStyle, name, contentName, socialMenu, socialLink }
+export { GlobalStyle, name, contentName, socialMenu, socialLink, about, contentAbout }
