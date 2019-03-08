@@ -1,14 +1,13 @@
-import { Link } from "gatsby"
 import React from "react"
 
-import { global } from "../styles/"
+import { home } from "../styles/"
 
 const Social = () => (
-    <global.socialMenu>
-        <global.socialLink><a href="#">Linkedin</a></global.socialLink>
-        <global.socialLink><a href="#">Twitter</a></global.socialLink>
-        <global.socialLink><a href="#">Github</a></global.socialLink>
-    </global.socialMenu>
+    <home.socialMenu>
+        <home.socialLink><a href="twitter.com">Linkedin</a></home.socialLink>
+        <home.socialLink><a href="twitter.com">Twitter</a></home.socialLink>
+        <home.socialLink><a href="twitter.com">Github</a></home.socialLink>
+    </home.socialMenu>
 )
 
 export default Social;

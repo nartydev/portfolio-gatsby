@@ -14,7 +14,7 @@ import Header from "./header"
 import { global } from '../styles/index'
 
 const Transition = posed.div({
-  enter: { opacity: 1, delay: 2000, beforeChildren: true },
+  enter: { opacity: 1, delay: 500, beforeChildren: true },
   exit: { opacity: 0 },
 })
 
@@ -32,7 +32,6 @@ const Layout = ({ props, children }) => (
     render={data => (
       <>
         <global.GlobalStyle/>
-        <Header siteTitle={data.site.siteMetadata.title} />
         <PoseGroup>
             <Transition key={0}>
               {children}

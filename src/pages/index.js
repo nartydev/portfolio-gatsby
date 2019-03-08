@@ -32,7 +32,7 @@ class IndexPage extends React.Component {
   render() {
     return (
 
-      <React.Fragment>
+      <Layout>
         <SEO title="Home" keywords={[`freelance`, `front-end`, `react`, `student`, `hetic`]} />
         <Canvas/>
         <Social/>
@@ -52,7 +52,7 @@ class IndexPage extends React.Component {
             <home.descProject ref={el => this.descProject = el}>School project</home.descProject>
           </div>
         </home.containerProject>
-      </React.Fragment>
+      </Layout>
     )
   }
 }

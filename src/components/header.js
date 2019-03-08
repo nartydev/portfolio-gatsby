@@ -1,23 +1,23 @@
 import PropTypes from "prop-types"
 import React from "react"
 
-import { global } from "../styles/"
+import { home } from "../styles/"
 
 const Header = ({ siteTitle }) => (
 
-  <global.container>
-    <global.contentName>
-      <global.name>
+  <div>
+    <home.contentName>
+      <home.name>
         Kérian.
-      </global.name>
-    </global.contentName>
+      </home.name>
+    </home.contentName>
 
-    <global.contentAbout>
-      <global.about>
-        <global.link to="about">About</global.link>
-      </global.about>
-    </global.contentAbout>
-  </global.container>
+    <home.contentAbout>
+      <home.about>
+        <home.link to="about">About</home.link>
+      </home.about>
+    </home.contentAbout>
+  </div>
 )
 
 Header.propTypes = {
