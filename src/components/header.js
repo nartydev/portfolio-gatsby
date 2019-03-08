@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
@@ -15,7 +14,7 @@ const Header = ({ siteTitle }) => (
 
     <global.contentAbout>
       <global.about>
-        <Link to="about">About</Link>
+        <global.link to="about">About</global.link>
       </global.about>
     </global.contentAbout>
   </React.Fragment>

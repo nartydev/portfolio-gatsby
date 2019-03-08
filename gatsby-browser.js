@@ -1,7 +1,24 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from 'react'
+import posed, { PoseGroup } from 'react-pose'
 
-// You can delete this file if you're not using it
+import Layout from './src/components/layout'
+import Header from './src/components/header'
+
+const Transition = posed.div({
+  enter: { opacity: 1, delay: 300, beforeChildren: true },
+  exit: { opacity: 0 },
+})
+
+export const replaceComponentRenderer = ({ props, ...other }) => {
+  const { component } = props.pageResources
+  return (
+    <Layout>
+        <Header/>
+        <PoseGroup>
+            <Transition key={props.location.key}>
+            {React.createElement(component, props)}
+            </Transition>
+        </PoseGroup>
+    </Layout>
+  )
+}

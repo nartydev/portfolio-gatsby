@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle, keyframes } from "styled-components"
+import { Link } from "gatsby"
 
 import CircularMedium from '../assets/fonts/CircularStd-Medium.woff'
 import CircularBook from '../assets/fonts/CircularStd-Book.woff'
@@ -121,6 +122,15 @@ const socialMenu = styled.div`
     transform: rotateZ(-90deg);
 `
 
+const link = styled(Link)`
+    color:#000;
+    text-decoration:none;
+    &:hover {
+        color:#000;
+        text-decoration:none;
+    }
+`  
+
 const socialLink = styled.div`
     display:inline-block;
     padding-right:15px;
@@ -149,4 +159,4 @@ const socialLink = styled.div`
 `
 
 
-export { GlobalStyle, name, contentName, socialMenu, socialLink, about, contentAbout }
+export { GlobalStyle, name, contentName, socialMenu, socialLink, about, contentAbout, link }

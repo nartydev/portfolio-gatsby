@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 
-import Round from "../controller/Round"
 import RandomRound from "../controller/RandomRound"
 
 class Canvas extends Component {
