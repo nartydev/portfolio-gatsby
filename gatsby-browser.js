@@ -12,12 +12,9 @@ const Transition = posed.div({
 export const replaceComponentRenderer = ({ props, ...other }) => {
   const { component } = props.pageResources
   return (
-    <Layout>
-        <PoseGroup>
-            <Transition key={props.location.key}>
+      <Layout>
             {React.createElement(component, props)}
-            </Transition>
-        </PoseGroup>
-    </Layout>
+      </Layout>
+  
   )
 }

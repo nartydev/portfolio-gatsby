@@ -8,11 +8,17 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
+import posed, { PoseGroup } from 'react-pose'
 
 import Header from "./header"
 import { global } from '../styles/index'
 
-const Layout = ({ children }) => (
+const Transition = posed.div({
+  enter: { opacity: 1, delay: 300, beforeChildren: true },
+  exit: { opacity: 0 },
+})
+
+const Layout = ({ props, children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -27,7 +33,11 @@ const Layout = ({ children }) => (
       <>
         <global.GlobalStyle/>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <main>{children}</main>
+        <PoseGroup>
+            <Transition key={0}>
+              {children}
+            </Transition>
+        </PoseGroup>
       </>
     )}
   />
